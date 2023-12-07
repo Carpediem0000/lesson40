@@ -129,12 +129,14 @@
   <ItemGroup>
     <ClCompile Include="Dairy.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Dictianory.cpp" />
     <ClCompile Include="Forum.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dairy.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="Dictianory.h" />
     <ClInclude Include="Forum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
