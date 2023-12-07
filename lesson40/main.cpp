@@ -1,22 +1,64 @@
-#include "Dairy.h"
+#include "Forum.h"
 
 int main()
 {
-	Dairy dairy;
+	int menu = 0;
+	Forum forum;
+	string login, password1, password2;
 
-	dairy.addEvent(Date(), "C++");
-	dairy.addEvent(Date() + 1, "JS");
-	dairy.addEvent(Date() - 2, "DataBase");
-	dairy.addEvent(Date(), "Movie");
-	dairy.addEvent(Date()+1, "Python");
+	do
+	{
+		cout << "1 - Register\n";
+		cout << "2 - Sign In\n";
+		cout << "3 - Sign Out\n";
+		cout << "4 - Change password\n";
+		cout << "5 - Show all users\n";
+		cout << "6 - Show online users\n";
+		cin >> menu;
 
-	dairy.show();
-	cout << "==================================\n";
+		switch (menu)
+		{
+		case 1:
+			cout << "Input login: ";
+			cin >> login;
+			cout << "Input password: ";
+			cin >> password1;
 
-	dairy.showEventCurrentDay();
+			forum._register(login, password1);
+			break;
+		case 2:
+			cout << "Input login: ";
+			cin >> login;
+			cout << "Input password: ";
+			cin >> password1;
 
-	cout << "--------------------------------\n";
+			forum.signIn(login, password1);
+			break;
+		case 3:
+			cout << "Input login: ";
+			cin >> login;
+			
+			forum.signOut(login);
+			break;
+		case 4:
+			cout << "Input login: ";
+			cin >> login;
+			cout << "Input old password: ";
+			cin >> password1;
+			cout << "Input new password: ";
+			cin >> password2;
 
-	dairy.removeEvent(Date() - 2, 0);
-	dairy.show();
+			forum.changePassword(login, password1, password2);
+			break;
+		case 5:
+			forum.show();
+			break;
+		case 6:
+			forum.showOnline();
+			break;
+		default:
+			break;
+		}
+
+	} while (menu);
 }
