@@ -1,38 +1,22 @@
-#include <iostream>
-#include <map>
-#include <string>
-using namespace std;
+#include "Dairy.h"
 
 int main()
 {
-	map<string, int> words;
+	Dairy dairy;
 
-	string text;
-	cout << "Enter text: ";
-	getline(cin, text);
-	text += " ";
+	dairy.addEvent(Date(), "C++");
+	dairy.addEvent(Date() + 1, "JS");
+	dairy.addEvent(Date() - 2, "DataBase");
+	dairy.addEvent(Date(), "Movie");
+	dairy.addEvent(Date()+1, "Python");
 
-	// Hello ITStep hello friends hello world
-	while (text.find(" ") != -1)
-	{
-		int pose = text.find(" ");
-		string word = text.substr(0, pose);
-		word[0] = tolower(word[0]);
-		cout << word << endl;
-		text.erase(0, pose + 1);
+	dairy.show();
+	cout << "==================================\n";
 
-		if (words.find(word) == words.end())
-		{
-			//words.insert(pair<string, int>(word, 1));
-			words[word] = 1;
-		}
-		else
-			words[word]++;
-	}
+	dairy.showEventCurrentDay();
 
-	map<string, int>::iterator it = words.begin();
-	for ( it; it != words.end(); ++it)
-	{
-		cout << "'" << it->first << "' = " << it->second << endl;
-	}
+	cout << "--------------------------------\n";
+
+	dairy.removeEvent(Date() - 2, 0);
+	dairy.show();
 }
